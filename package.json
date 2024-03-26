@@ -1,7 +1,7 @@
 {
   "name": "ejer1listatareas-tpbackend",
   "version": "1.0.0",
-  "description": "Se realizará el BackEnd del proyecto Lista de Tareas.",
+  "description": "Se realizará el BackEnd del proyecto Paleta de Colores.",
   "main": "index.js",
   "type": "module",
   "scripts": {
