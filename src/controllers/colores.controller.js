@@ -1,9 +1,5 @@
 import Color from "../database/Models/Color.js";
 
-export const listarColores = (req, res) => {
-  console.log("Hola comisión");
-  res.send("Aqui listar la lista de elementos.");
-};
 
 export const crearColor = async(req, res) => {
   try {
@@ -21,3 +17,28 @@ export const crearColor = async(req, res) => {
     
   }
 };
+
+export const listarColores = async(req, res) => {
+  try {
+    const colores = await Color.find();
+    res.status(200).json(colores);
+  } catch (error) {
+   console.error(error)
+   res.status(404).json({
+    mensaje: "No se pudo obtener la lista de colores."
+   })
+  }
+};
+
+export const obtenerColor = async(req,res) => {
+  try {
+    console.log(req.params.id)
+    const colorBuscado = await Color.findById(req.params.id)
+    res.status(200).json(colorBuscado);
+  } catch (error) {
+    console.error(error)
+    res.status(404).json({
+      mensaje: "No se encontró el color buscado."
+    })
+  }
+  }
